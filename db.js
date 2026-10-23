@@ -20,6 +20,11 @@ db.exec(`
     username       TEXT NOT NULL UNIQUE COLLATE NOCASE,
     password_hash  TEXT NOT NULL,
     email          TEXT UNIQUE COLLATE NOCASE,
+    email_verified BOOLEAN NOT NULL DEFAULT 0,
+    pending_email  TEXT,
+    email_verification_code_hash TEXT,
+    email_verification_expires_at INTEGER,
+    email_verification_attempts INTEGER NOT NULL DEFAULT 0,
     role           TEXT NOT NULL CHECK (role IN ('klant', 'admin')),
     created_at     INTEGER NOT NULL,
     payment_needed BOOLEAN NOT NULL DEFAULT 0,
@@ -68,6 +73,11 @@ function ensureColumn(table, column, definition) {
 
 ensureColumn('users', 'created_at', 'INTEGER NOT NULL DEFAULT 0');
 ensureColumn('users', 'email', 'TEXT');
+ensureColumn('users', 'email_verified', 'BOOLEAN NOT NULL DEFAULT 0');
+ensureColumn('users', 'pending_email', 'TEXT');
+ensureColumn('users', 'email_verification_code_hash', 'TEXT');
+ensureColumn('users', 'email_verification_expires_at', 'INTEGER');
+ensureColumn('users', 'email_verification_attempts', 'INTEGER NOT NULL DEFAULT 0');
 ensureColumn('users', 'payment_needed', 'BOOLEAN NOT NULL DEFAULT 0');
 ensureColumn('service_requests', 'title', "TEXT NOT NULL DEFAULT ''");
 ensureColumn('service_requests', 'updated_at', 'INTEGER NOT NULL DEFAULT 0');

@@ -33,8 +33,8 @@
 
     .auth-page { width: min(920px, 100%); margin: 0 auto; }
     .auth-header { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 0; background: #080708; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; color: #f5eeeb; font-size: 15px; font-weight: 700; letter-spacing: -.03em; text-decoration: none; }
-    .brand-mark { width: 19px; height: 19px; border: 4px solid var(--orange); border-radius: 6px 6px 6px 2px; transform: rotate(45deg) scale(.78); box-shadow: 0 0 16px rgba(255, 91, 48, .4); }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand-logo { display: block; width: 136px; height: 52px; flex: 0 0 auto; object-fit: cover; object-position: center; }
     .home-link { color: #c8c0bf; font-size: 13px; text-decoration: none; }
     .home-link:hover { color: #fff; }
     .intro { max-width: 620px; margin: clamp(54px, 9vh, 96px) auto 34px; text-align: center; }
@@ -60,7 +60,8 @@
     @media (max-width: 680px) {
       body { padding: 22px 16px 36px; }
       .auth-header { align-items: flex-start; }
-      .brand { max-width: 55%; font-size: 13px; }
+      .brand { max-width: 55%; }
+      .brand-logo { width: 124px; height: 48px; }
       .home-link { text-align: right; }
       .intro { margin: 54px auto 26px; }
       .auth-frames { grid-template-columns: 1fr; }
@@ -77,8 +78,7 @@
   <main class="auth-page">
     <header class="auth-header">
       <a class="brand" href="/" aria-label="Wilcotec Web Development, hoofdpagina">
-        <span class="brand-mark" aria-hidden="true"></span>
-        Wilcotec Web Development
+        <img class="brand-logo" src="/Logo_groot.png" alt="">
       </a>
       <a class="home-link" href="/">Terug naar de hoofdpagina</a>
     </header>

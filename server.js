@@ -24,7 +24,7 @@ const { db, hashPassword, verifyPassword, DUMMY_HASH } = require('./db');
 
 const PROD = process.env.NODE_ENV === 'production';
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || '127.0.0.1';
+const HOST = process.env.HOST || '0.0.0.0';
 const COOKIE = PROD ? '__Host-sid' : 'sid'; // __Host- dwingt Secure + Path=/ af
 const SESSION_MS = 8 * 60 * 60 * 1000;
 const sha256 = (s) => crypto.createHash('sha256').update(s).digest('hex');
@@ -773,6 +773,6 @@ app.post('/api/logout', requireSameOrigin, requireJson, json, (req, res) => {
 // Verlopen sessies opruimen
 setInterval(() => db.prepare('DELETE FROM sessions WHERE expires_at < ?').run(Date.now()), 60 * 60 * 1000).unref();
 
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, HOST, () => {
   console.log(`Server draait op poort ${PORT}`);
 });

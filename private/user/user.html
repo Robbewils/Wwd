@@ -68,23 +68,17 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
       color: #f5eeeb;
       text-decoration: none;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: -.03em;
-      line-height: 1.2;
     }
 
-    .brand-mark {
-      width: 19px;
-      height: 19px;
-      display: inline-block;
-      border: 4px solid var(--orange);
-      border-radius: 6px 6px 6px 2px;
-      transform: rotate(45deg) scale(.78);
-      box-shadow: 0 0 16px rgba(255, 91, 48, .4);
+    .brand-logo {
+      display: block;
+      width: 144px;
+      height: 56px;
+      flex: 0 0 auto;
+      object-fit: cover;
+      object-position: center;
     }
 
     .nav-links {
@@ -166,10 +160,6 @@
 
     .hero-actions {
       animation: fade-up .75s .28s both;
-    }
-
-    .brand-mark {
-      animation: mark-glow 3s ease-in-out infinite;
     }
 
     .stat {
@@ -766,18 +756,6 @@
       }
     }
 
-    @keyframes mark-glow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 8px rgba(255, 91, 48, .25);
-      }
-
-      50% {
-        box-shadow: 0 0 18px rgba(255, 91, 48, .65);
-      }
-    }
-
     @media (max-width: 760px) {
       .page {
         min-height: 100vh;
@@ -787,6 +765,11 @@
       .navigation {
         min-height: 68px;
         width: calc(100% - 30px);
+      }
+
+      .brand-logo {
+        width: 132px;
+        height: 52px;
       }
 
       .nav-links {
@@ -1306,7 +1289,7 @@
   <!-- Pas alle zichtbare teksten tussen [vierkante haken] aan naar je eigen inhoud. -->
   <main class="page" id="top">
     <header class="navigation">
-      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>Wilcotec Web Development</a>
+      <a class="brand" href="#top" aria-label="Wilcotec, startpagina"><img class="brand-logo" src="/Logo_groot.png" alt=""></a>
     </header>
 
     <section class="hero" id="product">
