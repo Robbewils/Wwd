@@ -773,6 +773,6 @@ app.post('/api/logout', requireSameOrigin, requireJson, json, (req, res) => {
 // Verlopen sessies opruimen
 setInterval(() => db.prepare('DELETE FROM sessions WHERE expires_at < ?').run(Date.now()), 60 * 60 * 1000).unref();
 
-app.listen(PORT, HOST, () => {
+app.listen(3000, "0.0.0.0", () => {
   console.log(`Server draait op poort ${PORT}`);
 });
